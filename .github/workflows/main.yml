@@ -23,6 +23,6 @@ jobs:
       run: curl -s -X POST https://api.telegram.org/bot${{ secrets.TELEGRAM_TOKEN }}/sendMessage -d chat_id=${{ secrets.TELEGRAM_CHAT_ID }} -d text="${MESSAGE}" >> /dev/null
       env:
         # Message content for issues
-        MESSAGE: "${{ github.event_name }} commit in ${{ github.repository }} by ${{ github.actor }}. [${{github.sha}}@${{ github.ref }}]"
+        MESSAGE: "${{ github.event_name }} commit in ${{ github.repository }} on branch ${{ github.branch }} by ${{ github.actor }}. [${{github.sha}}@${{ github.ref }}]"
       if: ${{ github.event_name }} == 'push'
       
