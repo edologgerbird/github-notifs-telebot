@@ -5,6 +5,7 @@ on:
     types: [opened, reopened, deleted, closed]
   push:
   pull_request:
+    types: [assigned, opened, closed, reopened, edited, review_requested, review_request_removed, ready_for_review]
   issue_comment:
   pull_request_review_comment:
 
