@@ -7,6 +7,7 @@ on:
   pull_request:
     types: [assigned, opened, closed, reopened, edited, review_requested, review_request_removed, ready_for_review]
   issue_comment:
+  pull_request_review:
   pull_request_review_comment:
 
 jobs:
@@ -17,7 +18,7 @@ jobs:
       if: github.event_name == 'issues'
       run: curl -s -X POST https://api.telegram.org/bot${{ secrets.TELEGRAM_TOKEN }}/sendMessage -d chat_id=${{ secrets.TELEGRAM_CHAT_ID }} -d text="${MESSAGE}" >> /dev/null
       env:
-        # Message content for issues
+        # Message content
         MESSAGE: | 
           The Issue [ ${{ github.event.issue.title }} ] 
           was ${{ github.event.action }} 
@@ -28,7 +29,7 @@ jobs:
       if: github.event_name == 'push'
       run: curl -s -X POST https://api.telegram.org/bot${{ secrets.TELEGRAM_TOKEN }}/sendMessage -d chat_id=${{ secrets.TELEGRAM_CHAT_ID }} -d text="${MESSAGE}" >> /dev/null
       env:
-        # Message content for issues
+        # Message content
         MESSAGE: |
           ${{ github.event_name }} commit in 
           ${{ github.repository }} by ${{ github.actor }}. 
@@ -38,21 +39,23 @@ jobs:
       if: github.event_name == 'pull_request'
       run: curl -s -X POST https://api.telegram.org/bot${{ secrets.TELEGRAM_TOKEN }}/sendMessage -d chat_id=${{ secrets.TELEGRAM_CHAT_ID }} -d text="${MESSAGE}" >> /dev/null
       env:
-        # Message content for issues
+        # Message content
         MESSAGE: |
           ${{ github.event_name }} ${{ github.event.action }} 
           in ${{ github.repository }} by ${{ github.actor }}. 
           [${{github.sha}}@${{ github.ref }}]
     
     - name: Send Issue Comment notifications to Telegram
-      if: github.event_name == 'issue_comment'
+      if: github.event_name == 'issue_comment' || github.event_name == 'pull_request_review_comment' || github.event_name == 'pull_request_review'
       run: curl -s -X POST https://api.telegram.org/bot${{ secrets.TELEGRAM_TOKEN }}/sendMessage -d chat_id=${{ secrets.TELEGRAM_CHAT_ID }} -d text="${MESSAGE}" >> /dev/null
       env:
-        # Message content for issues
+        # Message content
         MESSAGE: | 
           ${{ github.event_name }} ${{ github.event.action }} 
           in ${{ github.repository }} by ${{ github.actor }}. 
           [${{github.sha}}@${{ github.ref }}]
           ${{ github.event.issue.html_url }}
+          
+    
       
 
