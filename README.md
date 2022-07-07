@@ -1,2 +1,2 @@
 # github-notifs-telebot
-Tele
+Telegram bot
