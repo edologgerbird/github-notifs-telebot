@@ -53,5 +53,6 @@ jobs:
           ${{ github.event_name }} ${{ github.event.action }} 
           in ${{ github.repository }} by ${{ github.actor }}. 
           \n \n [${{github.sha}}@${{ github.ref }}]
+          \n \n ${{ toJson(github) }}
       
 
