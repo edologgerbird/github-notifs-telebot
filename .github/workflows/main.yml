@@ -22,7 +22,7 @@ jobs:
           The Issue [ ${{ github.event.issue.title }} ] 
           was ${{ github.event.action }} 
           by ${{ github.actor }}: 
-          \n${{ github.event.issue.html_url }}
+          ${{ github.event.issue.html_url }}
       
     - name: Send Push notifications to Telegram
       if: github.event_name == 'push'
@@ -32,7 +32,7 @@ jobs:
         MESSAGE: |
           ${{ github.event_name }} commit in 
           ${{ github.repository }} by ${{ github.actor }}. 
-          \n \n [${{github.sha}}@${{ github.ref }}]
+          [${{github.sha}}@${{ github.ref }}]
   
     - name: Send PR notifications to Telegram
       if: github.event_name == 'pull_request'
@@ -42,7 +42,7 @@ jobs:
         MESSAGE: |
           ${{ github.event_name }} ${{ github.event.action }} 
           in ${{ github.repository }} by ${{ github.actor }}. 
-          \n \n [${{github.sha}}@${{ github.ref }}]
+          [${{github.sha}}@${{ github.ref }}]
     
     - name: Send Issue Comment notifications to Telegram
       if: github.event_name == 'issue_comment'
@@ -52,7 +52,7 @@ jobs:
         MESSAGE: | 
           ${{ github.event_name }} ${{ github.event.action }} 
           in ${{ github.repository }} by ${{ github.actor }}. 
-          \n \n [${{github.sha}}@${{ github.ref }}]
-          \n \n ${{ github.event.issue.html_url }}
+          [${{github.sha}}@${{ github.ref }}]
+          ${{ github.event.issue.html_url }}
       
 
