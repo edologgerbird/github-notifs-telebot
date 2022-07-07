@@ -13,7 +13,7 @@ jobs:
     runs-on: ubuntu-latest
     steps:
     - name: Send Issues notifications to Telegram
-      if: ${{ github.event_name }} == 'issues'
+      if: github.event_name == 'issues'
       run: curl -s -X POST https://api.telegram.org/bot${{ secrets.TELEGRAM_TOKEN }}/sendMessage -d chat_id=${{ secrets.TELEGRAM_CHAT_ID }} -d text="${MESSAGE}" >> /dev/null
       env:
         # Message content for issues
@@ -21,7 +21,7 @@ jobs:
       
 
     - name: Send Push notifications to Telegram
-      if: ${{ github.event_name }} == 'push'
+      if: github.event_name == 'push'
       run: curl -s -X POST https://api.telegram.org/bot${{ secrets.TELEGRAM_TOKEN }}/sendMessage -d chat_id=${{ secrets.TELEGRAM_CHAT_ID }} -d text="${MESSAGE}" >> /dev/null
       env:
         # Message content for issues
