@@ -56,19 +56,8 @@ jobs:
           [${{github.sha}}@${{ github.ref }}]
           ${{ github.event.issue.html_url }}
           
-#     - name: Send PR Review Comment notifications to Telegram
-#       if: github.event_name == 'pull_request_review' 
-#       run: curl -s -X POST https://api.telegram.org/bot${{ secrets.TELEGRAM_TOKEN }}/sendMessage -d chat_id=${{ secrets.TELEGRAM_CHAT_ID }} -d text="${MESSAGE}" >> /dev/null
-#       env:
-#         # Message content
-#         MESSAGE: | 
-#           ${{ github.event_name }} ${{ github.event.action }} 
-#           in ${{ github.repository }} by ${{ github.actor }}. 
-#           [${{github.sha}}@${{ github.ref }}]
-#           ${{ github.event.html_url }}
-          
     - name: Send PR Review Comment notifications to Telegram
-      if: github.event_name == 'pull_request_review_comment'
+      if: github.event_name == 'pull_request_review' 
       run: curl -s -X POST https://api.telegram.org/bot${{ secrets.TELEGRAM_TOKEN }}/sendMessage -d chat_id=${{ secrets.TELEGRAM_CHAT_ID }} -d text="${MESSAGE}" >> /dev/null
       env:
         # Message content
@@ -76,5 +65,16 @@ jobs:
           ${{ github.event_name }} ${{ github.event.action }} 
           in ${{ github.repository }} by ${{ github.actor }}. 
           [${{github.sha}}@${{ github.ref }}]
-          ${{ github.pull_request_review_thread.pull_request.html_url }}
+          ${{ github.event.pull_request.html_url }}
+          
+#     - name: Send PR Review Comment notifications to Telegram
+#       if: github.event_name == 'pull_request_review_comment'
+#       run: curl -s -X POST https://api.telegram.org/bot${{ secrets.TELEGRAM_TOKEN }}/sendMessage -d chat_id=${{ secrets.TELEGRAM_CHAT_ID }} -d text="${MESSAGE}" >> /dev/null
+#       env:
+#         # Message content
+#         MESSAGE: | 
+#           ${{ github.event_name }} ${{ github.event.action }} 
+#           in ${{ github.repository }} by ${{ github.actor }}. 
+#           [${{github.sha}}@${{ github.ref }}]
+#           ${{ github.pull_request_review_thread.pull_request.html_url }}
 
