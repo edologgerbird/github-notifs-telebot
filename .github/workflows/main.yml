@@ -77,7 +77,4 @@ jobs:
           in ${{ github.repository }} by ${{ github.actor }}. 
           [${{github.sha}}@${{ github.ref }}]
           ${{ github.pull_request_review_thread.pull_request.html_url }}
-          
-    
-      
 
