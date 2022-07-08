@@ -21,7 +21,7 @@ jobs:
       env:
         # Message content
         MESSAGE: | 
-          The Issue [ ${{ github.event.issue.title }} ] 
+          🤖 The Issue [ ${{ github.event.issue.title }} ] 
           was ${{ github.event.action }} 
           by ${{ github.actor }}: 
           ${{ github.event.issue.html_url }}
@@ -32,7 +32,7 @@ jobs:
       env:
         # Message content
         MESSAGE: |
-          ${{ github.event_name }} commit in 
+          🤖 ${{ github.event_name }} commit in 
           ${{ github.repository }} by ${{ github.actor }}. 
           [${{github.sha}}@${{ github.ref }}]
   
@@ -42,7 +42,7 @@ jobs:
       env:
         # Message content
         MESSAGE: |
-          ${{ github.event_name }} ${{ github.event.action }} 
+          🤖 ${{ github.event_name }} ${{ github.event.action }} 
           in ${{ github.repository }} by ${{ github.actor }}. 
           [${{github.sha}}@${{ github.ref }}]
           ${{ github.event.pull_request.html_url }}
@@ -53,7 +53,7 @@ jobs:
       env:
         # Message content
         MESSAGE: | 
-          ${{ github.event_name }} ${{ github.event.action }} 
+          🤖 ${{ github.event_name }} ${{ github.event.action }} 
           in ${{ github.repository }} by ${{ github.actor }}. 
           [${{github.sha}}@${{ github.ref }}]
           ${{ github.event.issue.html_url }}
@@ -64,7 +64,7 @@ jobs:
       env:
         # Message content
         MESSAGE: | 
-          ${{ github.event_name }} ${{ github.event.action }} 
+          🤖 ${{ github.event_name }} ${{ github.event.action }} 
           in ${{ github.repository }} by ${{ github.actor }}. 
           [${{github.sha}}@${{ github.ref }}]
           ${{ github.event.pull_request.html_url }}
@@ -75,7 +75,7 @@ jobs:
       env:
         # Message content
         MESSAGE: | 
-          ${{ github.event_name }} ${{ github.event.action }} 
+          🤖 ${{ github.event_name }} ${{ github.event.action }} 
           in ${{ github.repository }} by ${{ github.actor }}. 
           [${{github.sha}}@${{ github.ref }}]
           
