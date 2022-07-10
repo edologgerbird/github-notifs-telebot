@@ -33,8 +33,12 @@ jobs:
         MESSAGE: |
           🤖 ${{ github.event_name }} commit in 
           ${{ github.repository }} by ${{ github.actor }}. 
+          
           Commit Message: ${{ github.event.commits[0].message }}
+          
           [${{github.sha}}@${{ github.ref }}]
+          
+          See changes: https://github.com/${{ github.repository }}/commit/${{github.sha}}
   
     - name: Send PR notifications to Telegram
       if: github.event_name == 'pull_request'
@@ -44,7 +48,9 @@ jobs:
         MESSAGE: |
           🤖 ${{ github.event_name }} ${{ github.event.action }} 
           in ${{ github.repository }} by ${{ github.actor }}. 
+          
           [${{github.sha}}@${{ github.ref }}]
+          
           ${{ github.event.pull_request.html_url }}
     
     - name: Send Issue Comment notifications to Telegram
@@ -55,7 +61,9 @@ jobs:
         MESSAGE: | 
           🤖 ${{ github.event_name }} ${{ github.event.action }} 
           in ${{ github.repository }} by ${{ github.actor }}. 
+          
           [${{github.sha}}@${{ github.ref }}]
+          
           ${{ github.event.issue.html_url }}
           
     - name: Send PR Review Comment notifications to Telegram
@@ -66,16 +74,7 @@ jobs:
         MESSAGE: | 
           🤖 ${{ github.event_name }} ${{ github.event.action }} 
           in ${{ github.repository }} by ${{ github.actor }}. 
+          
           [${{github.sha}}@${{ github.ref }}]
+          
           ${{ github.event.pull_request.html_url }}
-          
-    - name: Send Project Card notifications to Telegram
-      if: github.event_name == 'project_card' 
-      run: curl -s -X POST https://api.telegram.org/bot${{ secrets.TELEGRAM_TOKEN }}/sendMessage -d chat_id=${{ secrets.TELEGRAM_CHAT_ID }} -d text="${MESSAGE}" >> /dev/null
-      env:
-        # Message content
-        MESSAGE: | 
-          🤖 ${{ github.event_name }} ${{ github.event.action }} 
-          in ${{ github.repository }} by ${{ github.actor }}. 
-          [${{github.sha}}@${{ github.ref }}]
-          
