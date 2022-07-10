@@ -11,25 +11,26 @@
   </p>
 </div>
 
+<br/>
+
 <!-- TABLE OF CONTENTS -->
+<details>
+  <summary>Table of Contents</summary>
+  <ol>
+    <li><a href="#about-the-project">About The Project</a></li>
+    <li><a href="#getting-started">Getting Started<a></li>
+    <li><a href="#usage">Usage</a></li>
+    <li><a href="#license">License</a></li>
+    <li><a href="#contact">Contact</a></li>
+  </ol>
+</details>
+<br/>
+<!-- ABOUT THE PROJECT -->
 
-<h4>Table of Contents</h4>
-<ol>
-  <li>
-    <a href="#about-the-project">About The Project</a>
-    <ul>
-      <li><a href="#built-with">Built With</a></li>
-    </ul>
-  </li>
-  <li>
-    <a href="#getting-started">Getting Started</a>
-    <ul>
-      <li><a href="#prerequisites">Prerequisites</a></li>
-      <li><a href="#installation">Installation</a></li>
-    </ul>
-  </li>
-  <li><a href="#usage">Usage</a></li>
-  <li><a href="#license">License</a></li>
-  <li><a href="#contact">Contact</a></li>
-</ol>
+## About The Project
 
+This project adds Telegram notification capabilities for GitHub Actions. By following the usage instructions, users can set-up notifications in their respective Telegram groups for notifications regarding GitHub Issues, Push commits, Pull requests and PR review comments.
+
+<!-- GETTING STARTED -->
+
+## Getting Started
