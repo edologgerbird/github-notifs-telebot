@@ -13,7 +13,7 @@
 
 <!-- TABLE OF CONTENTS -->
 
-<summary>Table of Contents</summary>
+<h4>Table of Contents</h4>
 <ol>
   <li>
     <a href="#about-the-project">About The Project</a>
