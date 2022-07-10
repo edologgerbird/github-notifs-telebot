@@ -6,6 +6,6 @@
   <h1 align="center">🤖 GitHub Telegram Notifications (GitHub Actions) 🤖 </h2>
 
   <p align="center">
-    Telegram bot for GitHub Actions!
+    GitHub Actions for Telegram Bot Notifications
   </p>
 </div>
