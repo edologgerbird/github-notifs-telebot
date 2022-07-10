@@ -23,7 +23,8 @@ jobs:
           🤖 The Issue [ ${{ github.event.issue.title }} ] 
           was ${{ github.event.action }} 
           by ${{ github.actor }}: 
-          ${{ github.event.issue.html_url }}
+          
+          View issue: ${{ github.event.issue.html_url }}
       
     - name: Send Push notifications to Telegram
       if: github.event_name == 'push'
@@ -38,7 +39,7 @@ jobs:
           
           [${{github.sha}}@${{ github.ref }}]
           
-          See changes: https://github.com/${{ github.repository }}/commit/${{github.sha}}
+          View changes: https://github.com/${{ github.repository }}/commit/${{github.sha}}
   
     - name: Send PR notifications to Telegram
       if: github.event_name == 'pull_request'
@@ -51,7 +52,7 @@ jobs:
           
           [${{github.sha}}@${{ github.ref }}]
           
-          ${{ github.event.pull_request.html_url }}
+          View pull request: ${{ github.event.pull_request.html_url }}
     
     - name: Send Issue Comment notifications to Telegram
       if: github.event_name == 'issue_comment' 
@@ -64,7 +65,7 @@ jobs:
           
           [${{github.sha}}@${{ github.ref }}]
           
-          ${{ github.event.issue.html_url }}
+          View issue: ${{ github.event.issue.html_url }}
           
     - name: Send PR Review Comment notifications to Telegram
       if: github.event_name == 'pull_request_review' 
@@ -77,4 +78,4 @@ jobs:
           
           [${{github.sha}}@${{ github.ref }}]
           
-          ${{ github.event.pull_request.html_url }}
+          View pull request: ${{ github.event.pull_request.html_url }}
