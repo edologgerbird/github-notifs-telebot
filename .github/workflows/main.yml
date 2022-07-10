@@ -38,8 +38,7 @@ jobs:
       env:
         # Message content
         MESSAGE: |
-          🤖 ${{ github.event_name }} commit in 
-          ${{ github.repository }} by ${{ github.actor }}. 
+          🤖 ${{ github.event_name }} commit in ${{ github.repository }} by ${{ github.actor }}. 
           
           Commit Message: ${{ github.event.commits[0].message }}
           
