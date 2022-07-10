@@ -33,6 +33,7 @@ jobs:
         MESSAGE: |
           🤖 ${{ github.event_name }} commit in 
           ${{ github.repository }} by ${{ github.actor }}. 
+          Commit Message: ${{ github.event.commits[0].message }}
           [${{github.sha}}@${{ github.ref }}]
   
     - name: Send PR notifications to Telegram
