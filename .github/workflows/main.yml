@@ -37,7 +37,7 @@ jobs:
           
           Commit Message: ${{ github.event.commits[0].message }}
           
-          [${{github.sha}}@${{ github.ref }}]
+          Branch: ${{ github.ref }}
           
           View changes: https://github.com/${{ github.repository }}/commit/${{github.sha}}
   
@@ -50,7 +50,7 @@ jobs:
           🤖 ${{ github.event_name }} ${{ github.event.action }} 
           in ${{ github.repository }} by ${{ github.actor }}. 
           
-          [${{github.sha}}@${{ github.ref }}]
+          Branch: ${{ github.ref }}
           
           View pull request: ${{ github.event.pull_request.html_url }}
     
@@ -63,7 +63,7 @@ jobs:
           🤖 ${{ github.event_name }} ${{ github.event.action }} 
           in ${{ github.repository }} by ${{ github.actor }}. 
           
-          [${{github.sha}}@${{ github.ref }}]
+          Branch: ${{ github.ref }}
           
           View issue: ${{ github.event.issue.html_url }}
           
@@ -76,6 +76,6 @@ jobs:
           🤖 ${{ github.event_name }} ${{ github.event.action }} 
           in ${{ github.repository }} by ${{ github.actor }}. 
           
-          [${{github.sha}}@${{ github.ref }}]
+          Branch: ${{ github.ref }}
           
           View pull request: ${{ github.event.pull_request.html_url }}
