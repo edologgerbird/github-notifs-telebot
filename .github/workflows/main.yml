@@ -14,11 +14,15 @@ jobs:
   notify:
     runs-on: ubuntu-latest
     steps:
+    - name: Get current branch name
+      id: vars
+      run: echo ::set-output name=branch_name::${GITHUB_REF##*/}
+      
     - name: Send Issues notifications to Telegram
       if: github.event_name == 'issues'
       run: 
         curl -s -X POST https://api.telegram.org/bot${{ secrets.TELEGRAM_TOKEN }}/sendMessage -d chat_id=${{ secrets.TELEGRAM_CHAT_ID }} -d text="${MESSAGE}" >> /dev/null
-        echo ::set-output name=branch_name::${GITHUB_REF##*/}
+        
       env:
         # Message content
         MESSAGE: | 
