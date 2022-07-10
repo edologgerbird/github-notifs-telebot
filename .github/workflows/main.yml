@@ -43,7 +43,7 @@ jobs:
           
           Commit Message: ${{ github.event.commits[0].message }}
           
-          Branch: ${{ github.ref }}
+          Branch: ${{ github.ref }} , ${{ steps.vars.outputs.branch_name }}
           
           View changes: https://github.com/${{ github.repository }}/commit/${{github.sha}}
   
