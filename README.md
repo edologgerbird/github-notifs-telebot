@@ -131,7 +131,7 @@ Don't forget to give the project a star! Thanks again!
 
 ## License
 
-Distributed under the MIT License. See `LICENSE.md` for more information.
+Distributed under the MIT License. See [`LICENSE.md`](https://github.com/edologgerbird/github-notifs-telebot/blob/main/LICENSE.md) for more information.
 
 <p align="right">(<a href="#top">back to top</a>)</p>
 
