@@ -1,7 +1,7 @@
 <!-- PROJECT LOGO -->
 <div align="center">
   <a>
-    <img src="images/banner.png" alt="Logo" width=250>
+    <img src="images/banner.png" alt="Logo" width=350>
   </a>
 
   <h1 align="center">🤖 GitHub Telegram Notifications (GitHub Actions) 🤖 </h2>
