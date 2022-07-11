@@ -34,3 +34,74 @@ This project adds Telegram notification capabilities for GitHub Actions. By foll
 <!-- GETTING STARTED -->
 
 ## Getting Started
+
+Getting started is easy and involves only 5 simple steps.
+
+### Step 1: Creating a Telegram Bot with [@BotFather](https://t.me/BotFather)
+
+1. Start a chat with [@BotFather](https://t.me/BotFather) on Telegram.
+2. Create a new Telegram Bot with Telegram command `/newbot`.
+3. Follow the prompts returned to name your new bot.
+4. Upon successful creation of your new bot, you should recieve a token to access the bot via HTTP API.
+   > Example Token: 123456:ABC-DEF1234ghIkl-zyx57W2v1u123ew11
+5. Add the new bot you have just created into the group you wish to receive notifications in.
+
+> ❗ **Keep your token safe! Do not share or commit to public repositories! Use GitHub Secrets for safe storage and access.**
+
+### Step 2: Retrieve Telegram Chat ID from the group you wish to receive notifications in
+
+1. Identify which group you wish to receive notifications in.
+2. To retrieve Group ID, add [@itpp_myid_bot](https://t.me/itpp_myid_bot) into your Telegram Group.
+3. The [@itpp_myid_bot](https://t.me/itpp_myid_bot) bot should automatically send the Telegram User ID and Telegram Chat ID
+4. The Telegram Chat ID is what we want. It is usually a negative integer.
+
+> ❗ **Keep your Chat ID safe! Do not share or commit to public repositories! Use GitHub Secrets for safe storage and access.**
+
+### Step 3: Inputing Telegram Tokens into your repository Secrets
+
+1. Access your repository on [github.com](github.com).
+2. Go to settings > Security > Secrets > Actions.
+3. Create 2 new repository secrets - `TELEGRAM_TOKEN` and `TELEGRAM_CHAT_ID`.
+4. Input the token from Step 1 and chat ID from Step 2 into the respective secrets.
+
+### Step 4: Setting up GitHub Actions in your repository
+
+1. Access your repository on [github.com](github.com).
+2. Go to Actions > Workflows and click `New workflow`.
+3. Define a new workflow by clicking `set up a workflow yourself`.
+4. Delete the default template workflow.
+5. Copy and paste the code block below into the YML file. If you would like to disable specific notification events, simply delete the respective event from the `on:` section.
+
+```yml
+name: telegram message notification
+on:
+  issues:
+    types: [opened, reopened, deleted, closed]
+  push:
+  pull_request:
+    types:
+      [
+        assigned,
+        opened,
+        closed,
+        reopened,
+        edited,
+        review_requested,
+        review_request_removed,
+        ready_for_review,
+      ]
+  issue_comment:
+  pull_request_review:
+  pull_request_review_comment:
+
+jobs:
+  send-tele:
+    uses: edologgerbird/github-notifs-telebot/.github/workflows/main.yml@main
+    secrets:
+      TELEGRAM_CHAT_ID: ${{ secrets.TELEGRAM_CHAT_ID }}
+      TELEGRAM_TOKEN: ${{ secrets.TELEGRAM_TOKEN }}
+```
+
+### Step 5: 🎉 Done! Enjoy your GitHub notifications! 🎉
+
+Test your new GitHub workflow by pushing a commit to the repository.
