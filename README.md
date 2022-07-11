@@ -75,7 +75,7 @@ Getting started is easy and involves only 5 simple steps.
 2. Go to Actions > Workflows and click `New workflow`.
 3. Define a new workflow by clicking `set up a workflow yourself`.
 4. Delete the default template workflow.
-5. Copy and paste the code block below into the YML file. If you would like to disable specific notification events, simply delete the respective event from the `on:` section. If you would like to specify specific activities under each event, as referenced in [https://docs.github.com/en/actions/using-workflows/events-that-trigger-workflows](https://docs.github.com/en/actions/using-workflows/events-that-trigger-workflows), add activities under `types:` for each event.
+5. Copy and paste the code block below into the YML file. If you would like to disable specific notification events, simply delete the respective event from the `on:` section. If you would like to specify activities under each event, as referenced in [https://docs.github.com/en/actions/using-workflows/events-that-trigger-workflows](https://docs.github.com/en/actions/using-workflows/events-that-trigger-workflows), add activities under `types:` for each event.
 
 ```yml
 name: telegram message notification
