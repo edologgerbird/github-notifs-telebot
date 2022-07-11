@@ -5,8 +5,8 @@ on:
     secrets:
       TELEGRAM_CHAT_ID:
         required: true
-      TELEGRAM_TOKEN:
-        required: true
+      # TELEGRAM_TOKEN:
+      #   required: true
   issues:
     types: [opened, reopened, deleted, closed]
   push:
