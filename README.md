@@ -32,6 +32,8 @@
 
 This project adds Telegram notification capabilities for GitHub Actions. By following the usage instructions, users can set-up notifications in their respective Telegram groups for notifications regarding GitHub Issues, Push commits, Pull requests and PR review comments.
 
+<img src="images/sample.png" alt="Logo" width=500>
+
 <p align="right">(<a href="#top">back to top</a>)</p>
 
 <!-- GETTING STARTED -->
