@@ -109,7 +109,7 @@ jobs:
 
 ### Step 5: 🎉 Done! Enjoy your GitHub notifications! 🎉
 
-Test your new GitHub workflow by pushing a commit to the repository.
+Test your new GitHub workflow by pushing a commit to your repository.
 
 <p align="right">(<a href="#top">back to top</a>)</p>
 <!-- CONTRIBUTING -->
