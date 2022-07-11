@@ -111,6 +111,7 @@ Test your new GitHub workflow by pushing a commit to the repository.
 
 <p align="right">(<a href="#top">back to top</a>)</p>
 <!-- CONTRIBUTING -->
+
 ## Contributing
 
 Contributions are what make the open source community such an amazing place to learn, inspire, and create. Any contributions you make are **greatly appreciated**.
