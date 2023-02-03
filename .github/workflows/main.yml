@@ -34,6 +34,8 @@ jobs:
             🤖 The Issue [ ${{ github.event.issue.title }} ] 
             was ${{ github.event.action }} 
             by ${{ github.actor }}: 
+            
+            ASSIGNEE: ${{github.event.issue.assignee}}
 
             View issue: ${{ github.event.issue.html_url }}
 
