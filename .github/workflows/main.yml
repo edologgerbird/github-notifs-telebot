@@ -24,7 +24,7 @@ jobs:
 
       - name: Send Issues notifications to Telegram
         if: github.event_name == 'issues'
-        run: curl -s -X POST https://api.telegram.org/bot${{ secrets.TELEGRAM_TOKEN }}/sendMessage -d chat_id=${{ secrets.TELEGRAM_CHAT_ID }} -d text="${MESSAGE}" >> /dev/null
+        run: curl -s -X POST https://api.telegram.org/bot${{ secrets.TELEGRAM_TOKEN }}/sendMessage -d chat_id=${{ secrets.TELEGRAM_CHAT_ID }} -d text="${MESSAGE}" -d message_thread_id={{ secrets. MESSAGE_THREAD_ID}}>> /dev/null
 
         env:
           # Message content
@@ -37,7 +37,7 @@ jobs:
 
       - name: Send Push notifications to Telegram
         if: github.event_name == 'push'
-        run: curl -s -X POST https://api.telegram.org/bot${{ secrets.TELEGRAM_TOKEN }}/sendMessage -d chat_id=${{ secrets.TELEGRAM_CHAT_ID }} -d text="${MESSAGE}" >> /dev/null
+        run: curl -s -X POST https://api.telegram.org/bot${{ secrets.TELEGRAM_TOKEN }}/sendMessage -d chat_id=${{ secrets.TELEGRAM_CHAT_ID }} -d text="${MESSAGE}" -d message_thread_id={{ secrets. MESSAGE_THREAD_ID}}>> /dev/null
         env:
           # Message content
           MESSAGE: |
@@ -51,7 +51,7 @@ jobs:
 
       - name: Send PR notifications to Telegram
         if: github.event_name == 'pull_request'
-        run: curl -s -X POST https://api.telegram.org/bot${{ secrets.TELEGRAM_TOKEN }}/sendMessage -d chat_id=${{ secrets.TELEGRAM_CHAT_ID }} -d text="${MESSAGE}" >> /dev/null
+        run: curl -s -X POST https://api.telegram.org/bot${{ secrets.TELEGRAM_TOKEN }}/sendMessage -d chat_id=${{ secrets.TELEGRAM_CHAT_ID }} -d text="${MESSAGE}" -d message_thread_id={{ secrets. MESSAGE_THREAD_ID}}>> /dev/null
         env:
           # Message content
           MESSAGE: |
@@ -64,7 +64,7 @@ jobs:
 
       - name: Send Issue Comment notifications to Telegram
         if: github.event_name == 'issue_comment'
-        run: curl -s -X POST https://api.telegram.org/bot${{ secrets.TELEGRAM_TOKEN }}/sendMessage -d chat_id=${{ secrets.TELEGRAM_CHAT_ID }} -d text="${MESSAGE}" >> /dev/null
+        run: curl -s -X POST https://api.telegram.org/bot${{ secrets.TELEGRAM_TOKEN }}/sendMessage -d chat_id=${{ secrets.TELEGRAM_CHAT_ID }} -d text="${MESSAGE}" -d message_thread_id={{ secrets. MESSAGE_THREAD_ID}}>> /dev/null
         env:
           # Message content
           MESSAGE: |
@@ -77,7 +77,7 @@ jobs:
 
       - name: Send PR Review Comment notifications to Telegram
         if: github.event_name == 'pull_request_review'
-        run: curl -s -X POST https://api.telegram.org/bot${{ secrets.TELEGRAM_TOKEN }}/sendMessage -d chat_id=${{ secrets.TELEGRAM_CHAT_ID }} -d text="${MESSAGE}" >> /dev/null
+        run: curl -s -X POST https://api.telegram.org/bot${{ secrets.TELEGRAM_TOKEN }}/sendMessage -d chat_id=${{ secrets.TELEGRAM_CHAT_ID }} -d text="${MESSAGE}" -d message_thread_id={{ secrets. MESSAGE_THREAD_ID}}>> /dev/null
         env:
           # Message content
           MESSAGE: |
