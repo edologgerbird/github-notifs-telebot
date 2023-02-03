@@ -7,6 +7,8 @@ on:
         required: true
       TELEGRAM_TOKEN:
         required: true
+      MESSAGE_THREAD_ID:
+        required: true
   issues:
   push:
   pull_request:
