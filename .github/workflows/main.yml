@@ -35,7 +35,7 @@ jobs:
             was ${{ github.event.action }} 
             by ${{ github.actor }}: 
             
-            ASSIGNEE(S): ${{github.event.issue.assignees[0].login}} ${{github.event.issue.assignees[1].login}} ${{github.event.issue.assignees[2].login}}
+            ASSIGNEE(S): ${{github.event.issue.assignees[0].login}} ${{github.event.issue.assignees[1].login}} ${{github.event.issue.assignees[2].login}} ${{github.event.issue.assignees[3].login}} ${{github.event.issue.assignees[4].login}}
 
             View issue: ${{ github.event.issue.html_url }}
 
